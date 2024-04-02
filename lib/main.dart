@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'feature/auth/presentation/pages/signIn_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-Future <void> main() async  {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
- await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.android);
   runApp(const MyApp());
 }
 

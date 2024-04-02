@@ -1,13 +1,17 @@
 import 'package:blogspoter/core/theme/app_pallet.dart';
+import 'package:blogspoter/feature/auth/domain/auth_methods.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AuthGradientButton extends StatelessWidget {
   final String pageType;
-  const AuthGradientButton({super.key, required this.pageType});
+  final bool isSignUp;
+
+  const AuthGradientButton(
+      {super.key, required this.pageType, this.isSignUp = false});
 
   @override
   Widget build(BuildContext context) {
+    Firebase_Auth_Functions auth = Firebase_Auth_Functions();
     return Container(
       decoration: BoxDecoration(
           gradient: const LinearGradient(
@@ -16,7 +20,12 @@ class AuthGradientButton extends StatelessWidget {
               end: Alignment.topRight),
           borderRadius: BorderRadius.circular(9)),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          if (isSignUp) {
+            auth.signUpWithEmailPassword();
+          }
+          auth.signInWithEmailPass();
+        },
         style: ElevatedButton.styleFrom(
             fixedSize: const Size(395, 55),
             backgroundColor: AppPallete.transparentColor,

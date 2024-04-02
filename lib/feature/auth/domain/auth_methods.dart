@@ -1,20 +1,20 @@
+// ignore_for_file: camel_case_types
 
-import 'dart:io';
-
-import 'package:firebase_auth/firebase_auth.dart';
-// ignore: depend_on_referenced_packages
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-//import 'package:google_sign_in_dartio/google_sign_in_dartio.dart';
+import 'dart:ffi';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:blogspoter/firebase_options.dart';
-//import 'firebase_';
-class FirebaseAuth{
 
-late final FirebaseApp app;
-late final FirebaseAuth auth;
+class Firebase_Auth_Functions {
+  Firebase_Auth_Functions();
 
+  Future<void> signUpWithEmailPassword() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: "poketmar@365.com", password: "marlopoket_");
+  }
 
+  Future<void> signInWithEmailPass() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: "poketmar@365.com", password: "marlopoket_");
+    print("logged In");
+  }
 }
