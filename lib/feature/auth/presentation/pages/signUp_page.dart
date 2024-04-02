@@ -43,70 +43,75 @@ class _SignUpPageState extends State<SignUpPage> {
         padding: const EdgeInsets.all(15),
         child: Form(
           key: formkey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "BlogOn",
-                style: TextStyle(fontSize: 55, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              AuthField(
-                hintText: "Name",
-                controller: nameController,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              AuthField(
-                hintText: "Email",
-                controller: emailController,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              AuthField(
-                hintText: "Password",
-                controller: passwordController,
-                isPassword: true,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const AuthGradientButton(
-                pageType: 'SignUp',
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => SignInPage(),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "BlogOn",
+                    style: TextStyle(fontSize: 55, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  AuthField(
+                    hintText: "Name",
+                    controller: nameController,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  AuthField(
+                    hintText: "Email",
+                    controller: emailController,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  AuthField(
+                    hintText: "Password",
+                    controller: passwordController,
+                    isPassword: true,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const AuthGradientButton(
+                    pageType: 'SignUp',
+                    isSignUp: true,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignInPage(),
+                        ),
+                      );
+                    },
+                    child: RichText(
+                      text: TextSpan(
+                          text: "already have an account? ",
+                          style: Theme.of(context).textTheme.titleMedium,
+                          children: [
+                            TextSpan(
+                                text: 'SignIn',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium
+                                    ?.copyWith(
+                                        color: AppPallete.gradient2,
+                                        fontWeight: FontWeight.bold))
+                          ]),
                     ),
-                  );
-                },
-                child: RichText(
-                  text: TextSpan(
-                      text: "already have an account? ",
-                      style: Theme.of(context).textTheme.titleMedium,
-                      children: [
-                        TextSpan(
-                            text: 'SignIn',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium
-                                ?.copyWith(
-                                    color: AppPallete.gradient2,
-                                    fontWeight: FontWeight.bold))
-                      ]),
-                ),
-              )
-            ],
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
