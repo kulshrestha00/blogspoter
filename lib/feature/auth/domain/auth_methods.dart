@@ -14,7 +14,7 @@ import 'package:blogspoter/firebase_options.dart';
 class FirebaseAuth{
 
 late final FirebaseApp app;
-late final FirebaseAuth auth;
+//late final FirebaseAuth auth;
 
 
 }
